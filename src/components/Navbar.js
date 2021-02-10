@@ -30,12 +30,16 @@ export const Navbar = () => {
                 <div className="navbar-nav">
 
                     <NavLink activeClassName="active" className="nav-item nav-link" 
-                        exact to="/marvel">Marvel</NavLink>
+                        exact to="/materias">Materias</NavLink>
 
                     <NavLink activeClassName="active" className="nav-item nav-link" 
-                        exact to="/dc">DC</NavLink>
+                        exact to="/profesors">Profesors</NavLink>
+
                     <NavLink activeClassName="active" className="nav-item nav-link" 
-                        exact to="/search">Search</NavLink>
+                        exact to="/roles">Roles</NavLink>
+                    
+                    <NavLink activeClassName="active" className="nav-item nav-link" 
+                        exact to="/selectSemestre">Semestre</NavLink>
                 </div>
             </div>
 

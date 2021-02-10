@@ -8,9 +8,8 @@ import { types } from '../../types/types';
 
 export const RegisterScreen = ({history}) => {
     
-    const {user, dispatch} = useContext(AuthContext);    
-    const {logged, name} = user;
-    const [fields, handledInputChange] = useForm({nombre: '',password: '', confirPassword:'', email: ''});
+    const {user, dispatch} = useContext(AuthContext);        
+    const [fields, handledInputChange, resetFields] = useForm({nombre: '',password: '', confirPassword:'', email: ''});
     const {nombre, password, confirPassword, email} = fields;
         
     const handleLogin = (e) => {
@@ -22,14 +21,14 @@ export const RegisterScreen = ({history}) => {
             Axios.post(`${urls.server}register`, {username: nombre, password, email})
             .then((resp) => {
                 console.log("register ok", resp);
-            })
-            const lastPath = localStorage.getItem('lastPath') || '/'
-            dispatch({
-                type: types.login,
-                payload: {name: nombre}
-            })
-            history.replace(lastPath);
-            console.log(fields);
+                const lastPath = localStorage.getItem('lastPath') || '/'
+                dispatch({
+                    type: types.login,
+                    payload: {name: nombre, email}
+                })
+                history.replace(lastPath);
+                resetFields();
+            })            
         }
     }  
     return (

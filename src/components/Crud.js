@@ -11,7 +11,7 @@ export const Crud = () => {
 
 
     useEffect(() => {//se ejecuta automaticamente al cargar el componente
-        traerDtaDB();
+        //traerDtaDB();
         return () => {
 
         }
